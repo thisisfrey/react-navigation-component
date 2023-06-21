@@ -35,7 +35,6 @@ const openedMixin = (theme: Theme): CSSObject => ({
   overflowY: "hidden",
   height: "calc(100vh - 70px)",
   marginTop: "70px",
-  padding: "5px",
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
@@ -111,7 +110,6 @@ const Navigation = ({ children }: { children: ReactNode }) => {
         </Box>
         <List
           sx={{
-            paddingRight: "0.2rem",
             overflowX: "hidden",
             overflowY: "auto",
             height: "inherit",

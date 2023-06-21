@@ -23,7 +23,7 @@ function ModuleView({ name }: IModuleView) {
           key={index}
           title={module.name}
           icon={module.icon}
-          favoriteId={module.id}
+          id={module.id}
         />
       ))}
       {modules?.length === 0 && <h1>No children</h1>}

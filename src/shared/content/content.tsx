@@ -12,18 +12,8 @@ import LandscapeIcon from "@mui/icons-material/Landscape";
 
 type IAuthCheck = () => boolean;
 
-export interface IContentWithoutFullPath {
-  id: number;
-  name: string;
-  route: string;
-  isAuth: boolean | IAuthCheck;
-  component: () => JSX.Element;
-  icon: JSX.Element;
-  modules?: IContentWithoutFullPath[];
-}
-
 export interface IContent {
-  id: number;
+  id: string;
   name: string;
   route: string;
   isAuth: boolean | IAuthCheck;
@@ -31,6 +21,16 @@ export interface IContent {
   component: () => JSX.Element;
   icon: JSX.Element;
   modules?: IContent[];
+}
+
+export interface IContentWithoutFullPath {
+  id: string;
+  name: string;
+  route: string;
+  isAuth: boolean | IAuthCheck;
+  component: () => JSX.Element;
+  icon: JSX.Element;
+  modules?: IContentWithoutFullPath[];
 }
 
 const addFullPath = (
@@ -68,7 +68,7 @@ const flatten = (content: IContent[]): IContent[] => {
 
 export const content: IContent[] = addFullPath([
   {
-    id: 0,
+    id: "0",
     name: "Favoriten",
     route: "/favorites",
     isAuth: true,
@@ -76,7 +76,7 @@ export const content: IContent[] = addFullPath([
     icon: <StarIcon />,
   },
   {
-    id: 1,
+    id: "1",
     name: "Parent 1",
     route: "/parent-one",
     isAuth: true,
@@ -84,7 +84,7 @@ export const content: IContent[] = addFullPath([
     icon: <Diversity1Icon />,
     modules: [
       {
-        id: 10,
+        id: "10",
         name: "Child 1",
         route: "/child-one",
         isAuth: true,
@@ -92,7 +92,7 @@ export const content: IContent[] = addFullPath([
         icon: <ChildCareIcon />,
       },
       {
-        id: 11,
+        id: "11",
         name: "Child 2",
         route: "/child-two",
         isAuth: true,
@@ -102,7 +102,7 @@ export const content: IContent[] = addFullPath([
     ],
   },
   {
-    id: 2,
+    id: "2",
     name: "Parent 2",
     route: "/parent-two",
     isAuth: true,
@@ -110,7 +110,7 @@ export const content: IContent[] = addFullPath([
     icon: <LocationCityIcon />,
     modules: [
       {
-        id: 20,
+        id: "20",
         name: "Child 1",
         route: "/child-one",
         isAuth: true,
@@ -118,7 +118,7 @@ export const content: IContent[] = addFullPath([
         icon: <HouseIcon />,
       },
       {
-        id: 21,
+        id: "21",
         name: "Child 2",
         route: "/child-two",
         isAuth: true,
@@ -126,7 +126,7 @@ export const content: IContent[] = addFullPath([
         icon: <MapIcon />,
       },
       {
-        id: 21,
+        id: "22",
         name: "Child 3",
         route: "/child-three",
         isAuth: true,
@@ -136,7 +136,7 @@ export const content: IContent[] = addFullPath([
     ],
   },
   {
-    id: 3,
+    id: "3",
     name: "Parent 3",
     route: "/parent-three",
     isAuth: true,
