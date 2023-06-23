@@ -1,7 +1,6 @@
 import StarIcon from "@mui/icons-material/Star";
 import ModuleView from "../moduleView/moduleView";
 import Diversity1Icon from "@mui/icons-material/Diversity1";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import ChildCareIcon from "@mui/icons-material/ChildCare";
 
 import LocationCityIcon from "@mui/icons-material/LocationCity";
@@ -69,10 +68,10 @@ const flatten = (content: IContent[]): IContent[] => {
 export const content: IContent[] = addFullPath([
   {
     id: "0",
-    name: "Favoriten",
+    name: "Favorites",
     route: "/favorites",
     isAuth: true,
-    component: () => <ModuleView name="Favoriten" />,
+    component: () => <ModuleView name="Favorites" />,
     icon: <StarIcon />,
   },
   {
@@ -84,7 +83,7 @@ export const content: IContent[] = addFullPath([
     icon: <Diversity1Icon />,
     modules: [
       {
-        id: "10",
+        id: "100",
         name: "Child 1",
         route: "/child-one",
         isAuth: true,
@@ -92,7 +91,7 @@ export const content: IContent[] = addFullPath([
         icon: <ChildCareIcon />,
       },
       {
-        id: "11",
+        id: "110",
         name: "Child 2",
         route: "/child-two",
         isAuth: true,

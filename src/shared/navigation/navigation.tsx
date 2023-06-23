@@ -19,11 +19,8 @@ import { content, IContent } from "../content/content";
 import { ReactNode } from "react";
 import { matchPath, useLocation, useNavigate } from "react-router-dom";
 import { ModuleItem } from "./components/moduleItem";
-//import { useAtomValue } from "jotai/react";
-//import { favoriteModules } from "../store/store";
-//import { getIsAuthorizedMap } from "../util/hasPermission";
 
-const drawerWidth = 300;
+const drawerWidth = 200;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -174,7 +171,9 @@ const Navigation = ({ children }: { children: ReactNode }) => {
                       </ListItemIcon>
                       <ListItemText
                         primary={category.name}
-                        sx={{ opacity: open ? 1 : 0 }}
+                        sx={{
+                          opacity: open ? 1 : 0,
+                        }}
                       />
                     </ListItemButton>
                   </ListItem>

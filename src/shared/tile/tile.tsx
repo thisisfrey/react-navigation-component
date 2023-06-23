@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { flatContent } from "../../shared/content/content";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
-import useFavorites from "../../hooks/useFavorites";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ITileProps {
   title?: string;
@@ -20,21 +19,31 @@ const Tile = ({
 }: ITileProps): JSX.Element => {
   const navigate = useNavigate();
   const module = flatContent.find((content) => id === content.id);
-  // workaround to trigger re-render after favorites changed
-  const [changedFavorites, setChangedFavorites] = useState(true);
+  const [favorites, setFavorites] = useState<string[]>([]);
 
-  const { favorites, setFavorites } = useFavorites();
   const onSelectFavorite = (id: string) => {
-    if (!favorites.includes(id)) {
-      favorites.push(id);
-      setFavorites(favorites);
+    const ls = window.localStorage.getItem("favorites");
+    let favoritesLS = ls ? JSON.parse(ls) : [];
+
+    if (!favoritesLS.includes(id)) {
+      favoritesLS.push(id);
     } else {
-      favorites.splice(favorites.indexOf(id), 1);
-      setFavorites(favorites);
+      favoritesLS = favoritesLS.filter((el: string) => el !== id);
     }
-    // trigger re-render
-    setChangedFavorites(!changedFavorites);
+
+    window.localStorage.setItem("favorites", JSON.stringify(favoritesLS));
+    setFavorites(favoritesLS);
+    //window.dispatchEvent(new Event("onSelectFavorite"));
   };
+
+  useEffect(() => {
+    try {
+      const favoritesLS = window.localStorage.getItem("favorites");
+      setFavorites(favoritesLS ? JSON.parse(favoritesLS) : []);
+    } catch (error) {
+      setFavorites([]);
+    }
+  }, []);
 
   return module !== undefined ? (
     <Button
@@ -52,7 +61,13 @@ const Tile = ({
       onClick={() => navigate(module.fullRoute)}
     >
       <Box
-        sx={{ color: "white", position: "absolute", top: 0, right: 0, m: "8px" }}
+        sx={{
+          color: "white",
+          position: "absolute",
+          top: 0,
+          right: 0,
+          m: "8px",
+        }}
         onClick={(event) => {
           event.stopPropagation();
           onSelectFavorite(id);
@@ -85,9 +100,9 @@ const Tile = ({
         </Box>
         <Typography
           sx={{
-            width: "80%",
+            width: "90%",
             fontSize: "18px",
-            fontWeight: "400",
+            fontWeight: "500",
           }}
         >
           {title}
@@ -99,5 +114,3 @@ const Tile = ({
   );
 };
 export default Tile;
-
-// TODO, trigger re-render on icon change
