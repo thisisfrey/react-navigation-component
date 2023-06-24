@@ -19,7 +19,6 @@ function ModuleView({ name, isFavorites = false }: IModuleView) {
 
   useEffect(() => {
     if (isFavorites) {
-      console.log("YESSS, isFavorites");
       const favoriteModules = [];
       for (const id of favoriteIds) {
         const module = flatContent.find((el) => el.id === id);

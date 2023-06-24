@@ -1,4 +1,3 @@
-import StarIcon from "@mui/icons-material/Star";
 import ModuleView from "../moduleView/moduleView";
 // module imports
 import ChildOne from "../../modules/ParentOne/ChildOne";
