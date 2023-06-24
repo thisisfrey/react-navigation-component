@@ -7,7 +7,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { useNavigate } from "react-router-dom";
 
 export interface ITopBar {
-  open?: boolean;
+  expanded?: boolean;
 }
 
 interface AppBarProps extends MuiAppBarProps {
@@ -32,7 +32,7 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const TopBar = ({ open = false }: ITopBar): JSX.Element => {
+const TopBar = ({ expanded = false }: ITopBar): JSX.Element => {
   const navigate = useNavigate();
   return (
     <>
@@ -45,7 +45,7 @@ const TopBar = ({ open = false }: ITopBar): JSX.Element => {
           justifyContent: "center",
         }}
         position="fixed"
-        open={open}
+        open={expanded}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Box

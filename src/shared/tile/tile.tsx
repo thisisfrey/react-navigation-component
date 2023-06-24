@@ -1,22 +1,20 @@
 import { Box, Button, Typography } from "@mui/material";
-import Icon from "@mui/icons-material/SentimentSatisfied";
 import { useNavigate } from "react-router-dom";
 import { flatContent } from "../../shared/content/content";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
-import { useEffect, useState } from "react";
 
 interface ITileProps {
-  title?: string;
-  icon?: JSX.Element;
+  name?: string | undefined;
+  icon?: JSX.Element | undefined;
   id: string;
   isFavorite: boolean;
   onChangeFavorite: (id: string) => void;
 }
 
 const Tile = ({
-  title = "Title",
-  icon = <Icon />,
+  name = undefined,
+  icon = undefined,
   id,
   isFavorite,
   onChangeFavorite,
@@ -24,23 +22,27 @@ const Tile = ({
   const navigate = useNavigate();
   const module = flatContent.find((content) => id === content.id);
 
-  return module !== undefined ? (
+  if (!module) {
+    console.warn("Module not found");
+  }
+
+  return module ? (
     <Button
       sx={{
-        borderRadius: "16px",
+        backgroundColor: "primary.light",
+        color: "white",
         boxShadow: 2,
         margin: "1rem",
         padding: "5px",
-        width: "10rem",
-        height: "10rem",
+        width: "8rem",
+        height: "8rem",
         cursor: "pointer",
       }}
-      variant="contained"
+      variant="outlined"
       onClick={() => navigate(module.fullRoute)}
     >
       <Box
         sx={{
-          color: "white",
           position: "absolute",
           top: 0,
           right: 0,
@@ -69,26 +71,19 @@ const Tile = ({
       >
         <Box
           sx={{
-            color: "white",
+            display: "flex",
+            justifyContent: "center",
             margin: 1,
-            scale: "2",
+            scale: "1.5",
           }}
         >
-          {icon}
+          {icon ? icon : module.icon}
         </Box>
-        <Typography
-          sx={{
-            width: "90%",
-            fontSize: "18px",
-            fontWeight: "500",
-          }}
-        >
-          {title}
-        </Typography>
+        <Typography>{name ? name : module.name}</Typography>
       </Box>
     </Button>
   ) : (
-    <>Modul nicht gefunden</>
+    <></>
   );
 };
 export default Tile;

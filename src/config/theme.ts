@@ -29,12 +29,23 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          color: "white",
+          borderRadius: "16px",
           "&.Mui-disabled": {
             pointerEvents: "auto",
           },
           ":focus": { outline: "none" },
         },
+        contained: {
+          color: "white",
+        },
+        outlined: {
+          backgroundColor: "white",
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: { ":focus": { outline: "none" } },
       },
     },
   },

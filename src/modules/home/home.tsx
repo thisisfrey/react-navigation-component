@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { content } from "../../shared/content/content";
+import { favorites } from "../../shared/content/favorites";
 import { useNavigate } from "react-router-dom";
 import BackgroundImg from "../../assets/landing.jpg";
 
@@ -13,7 +14,7 @@ function Home() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "start",
+        alignItems: "center",
         mt: 5,
         ml: "3rem",
       }}
@@ -30,68 +31,58 @@ function Home() {
           overflowY: "hidden",
         }}
       />
-      <Typography
-        sx={{
-          color: "white",
-          fontSize: "42px",
-          fontWeight: "600",
-          mt: 5,
-          zIndex: "100",
-        }}
-      >
-        Welcome!
-      </Typography>
-      <Typography
-        sx={{
-          color: "white",
-          mt: 2,
-          zIndex: "100",
-          fontSize: "22px",
-        }}
-      >
-        Where do you want to start?
-      </Typography>
       <Box
         sx={{
+          mt: 3,
+          zIndex: 100,
           display: "flex",
-          flexWrap: "wrap",
-          mt: 5,
-          width: "100%",
+          alignItems: "left",
+          flexDirection: "column",
+          color: "white",
         }}
       >
-        {content.map((category, index) => (
-          <React.Fragment key={index}>
-            <Button
-              onClick={() => navigate(category.route)}
-              sx={{
-                background: "#FFFFFF",
-                borderRadius: "16px",
-                flexDirection: "column",
-                padding: "10px",
-                boxShadow: 2,
-                display: "flex",
-                alignItems: "center",
-                textAlign: "center",
-                textTransform: "capitalize",
-                width: "10rem",
-                height: "10rem",
-                margin: "0.7rem",
-              }}
-            >
-              <Box
-                sx={{ color: "primary.main", transform: "scale(2.2)", mt: 1 }}
+        <Typography variant="h2">Welcome!</Typography>
+        <Typography variant="h5" sx={{ mt: 1 }}>
+          Where do you want to start?
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            mt: 5,
+          }}
+        >
+          {[favorites,...content].map((category, index) => (
+            <React.Fragment key={index}>
+              <Button
+                onClick={() => navigate(category.route)}
+                color="primary"
+                variant="contained"
+                sx={{
+                  borderRadius: "16px",
+                  flexDirection: "column",
+                  padding: "10px",
+                  boxShadow: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
+                  textTransform: "capitalize",
+                  width: "10rem",
+                  height: "10rem",
+                  margin: "0.7rem",
+                }}
               >
-                {category.icon}
-              </Box>
+                <Box sx={{ color: "white", transform: "scale(2.2)", mt: 1 }}>
+                  {category.icon}
+                </Box>
 
-              <Typography
-                sx={{ mt: 2, fontSize: "20px", color: "primary.main" }}
-              >
-                {category.name}
-              </Typography>
-            </Button>
-          </React.Fragment>
-        ))}
+                <Typography sx={{ mt: 2, fontSize: "20px", color: "white" }}>
+                  {category.name}
+                </Typography>
+              </Button>
+            </React.Fragment>
+          ))}
+        </Box>
       </Box>
     </Box>
   );

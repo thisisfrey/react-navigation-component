@@ -11,6 +11,7 @@ import {
   ListItem,
   IconButton,
   CssBaseline,
+  Tooltip,
 } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
@@ -20,6 +21,8 @@ import { ReactNode } from "react";
 import { matchPath, useLocation, useNavigate } from "react-router-dom";
 import { ModuleItem } from "./components/moduleItem";
 import app from "../../config/constants";
+import { favorites } from "../content/favorites";
+import { NavItem } from "./components/navItem";
 
 const drawerWidth = 200;
 
@@ -52,7 +55,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
 });
 
 const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
+  shouldForwardProp: (prop) => prop !== "isExpanded",
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
@@ -68,26 +71,16 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const ListItemButtonStyle = {
-  content: '""',
-  height: "75%",
-  width: "4px",
-  position: "absolute",
-  right: "0",
-  top: "50%",
-  transform: "translateY(-50%)",
-};
-
 const Navigation = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
-  const [open, setOpen] = React.useState(false);
+  const [isExpanded, setOpen] = React.useState(false);
   const location = useLocation();
 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <TopBar open={open} />
-      <Drawer variant="permanent" open={open}>
+      <TopBar expanded={isExpanded} />
+      <Drawer variant="permanent" open={isExpanded}>
         <Box
           sx={{
             display: "flex",
@@ -95,10 +88,10 @@ const Navigation = ({ children }: { children: ReactNode }) => {
           }}
         >
           <IconButton
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen(!isExpanded)}
             sx={{ m: 1, ":focus": { outline: "none" } }}
           >
-            {open ? (
+            {isExpanded ? (
               <KeyboardDoubleArrowLeftIcon />
             ) : (
               <KeyboardDoubleArrowRightIcon />
@@ -128,87 +121,28 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             },
           }}
         >
-          {content.map((category: IContent, index) => {
-            let isSelectedCategory;
-            if (open) {
-              isSelectedCategory = matchPath(category.route, location.pathname);
-            }
-            const isInSelectedCategory = matchPath(
-              category.route + "/*",
-              location.pathname
-            );
+          <NavItem el={favorites} expanded={isExpanded} favorites={true} />
 
+          {content.map((category: IContent, index) => {
             return (
               <Box sx={{ marginBottom: "8px" }} key={index}>
-                <>
-                  <ListItem
-                    key={category.name}
-                    disablePadding
-                    sx={{ display: "block" }}
-                    onClick={() => navigate(category.route)}
-                  >
-                    <ListItemButton
-                      sx={{
-                        minHeight: 48,
-                        justifyContent: open ? "initial" : "center",
-                        px: 2.5,
-                        "&:after":
-                          (open && isSelectedCategory) ||
-                          (!open && isInSelectedCategory)
-                            ? ListItemButtonStyle
-                            : {},
-                      }}
-                    >
-                      <ListItemIcon
-                        sx={{
-                          color: isInSelectedCategory
-                            ? "primary.main"
-                            : "inherit",
-                          minWidth: 0,
-                          mr: open ? 3 : "auto",
-                          justifyContent: "center",
-                        }}
-                      >
-                        {category.icon}
-                      </ListItemIcon>
-                      <ListItemText
-                        primary={category.name}
-                        sx={{
-                          opacity: open ? 1 : 0,
-                        }}
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                  {/* FAVORITES */}
-                  {/* {category.id == 1
-                      ? selectedFavoriteModules.map(
-                          (module: IContent, index) => (
-                            <React.Fragment key={index}>
-                              <ModuleItem
-                                module={module}
-                                open={open}
-                                key={index}
-                                isFavorite={true}
-                              />
-                            </React.Fragment>
-                          )
-                        )} */}
-                  {/* MODULES */}
-                  {category.modules?.map((module: IContent, index) => (
-                    <React.Fragment key={index}>
-                      <ModuleItem
-                        module={module}
-                        open={open}
-                        isFavorite={false}
-                      />
-                    </React.Fragment>
-                  ))}
-                </>
+                <NavItem
+                  el={category}
+                  expanded={isExpanded}
+                  favorites={false}
+                />
+                {category.modules?.map((module: IContent, index) => (
+                  <ModuleItem
+                    key={index}
+                    module={module}
+                    expanded={isExpanded}
+                  />
+                ))}
               </Box>
             );
           })}
         </List>
-        {open && (
+        {isExpanded && (
           <Box
             sx={{
               display: "flex",

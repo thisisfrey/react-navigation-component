@@ -1,21 +1,25 @@
 import StarIcon from "@mui/icons-material/Star";
 import ModuleView from "../moduleView/moduleView";
+// module imports
+import ChildOne from "../../modules/ParentOne/ChildOne";
+import ChildTwo from "../../modules/ParentOne/ChildTwo";
+import FirstChild from "../../modules/ParentTwo/FirstChild";
+import SecondChild from "../../modules/ParentTwo/SecondChild";
+import ThirdChild from "../../modules/ParentTwo/ThirdChild";
+import ParentThree from "../../modules/ParentThree/ParentThree";
+// icons
 import Diversity1Icon from "@mui/icons-material/Diversity1";
 import ChildCareIcon from "@mui/icons-material/ChildCare";
-
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import MapIcon from "@mui/icons-material/Map";
 import HouseIcon from "@mui/icons-material/House";
 import SignpostIcon from "@mui/icons-material/Signpost";
 import LandscapeIcon from "@mui/icons-material/Landscape";
 
-type IAuthCheck = () => boolean;
-
 export interface IContent {
   id: string;
   name: string;
   route: string;
-  isAuth: boolean | IAuthCheck;
   fullRoute: string;
   component: () => JSX.Element;
   icon: JSX.Element;
@@ -26,7 +30,6 @@ export interface IContentWithoutFullPath {
   id: string;
   name: string;
   route: string;
-  isAuth: boolean | IAuthCheck;
   component: () => JSX.Element;
   icon: JSX.Element;
   modules?: IContentWithoutFullPath[];
@@ -67,18 +70,10 @@ const flatten = (content: IContent[]): IContent[] => {
 
 export const content: IContent[] = addFullPath([
   {
-    id: "0",
-    name: "Favorites",
-    route: "/favorites",
-    isAuth: true,
-    component: () => <ModuleView name="Favorites" />,
-    icon: <StarIcon />,
-  },
-  {
     id: "1",
     name: "Parent 1",
     route: "/parent-one",
-    isAuth: true,
+
     component: () => <ModuleView name="Parent 1" />,
     icon: <Diversity1Icon />,
     modules: [
@@ -86,16 +81,14 @@ export const content: IContent[] = addFullPath([
         id: "100",
         name: "Child 1",
         route: "/child-one",
-        isAuth: true,
-        component: () => <h1>Child 1</h1>,
+        component: () => <ChildOne />,
         icon: <ChildCareIcon />,
       },
       {
         id: "110",
         name: "Child 2",
         route: "/child-two",
-        isAuth: true,
-        component: () => <h1>Child 2</h1>,
+        component: () => <ChildTwo />,
         icon: <ChildCareIcon />,
       },
     ],
@@ -104,7 +97,7 @@ export const content: IContent[] = addFullPath([
     id: "2",
     name: "Parent 2",
     route: "/parent-two",
-    isAuth: true,
+
     component: () => <ModuleView name="Parent 2" />,
     icon: <LocationCityIcon />,
     modules: [
@@ -112,24 +105,21 @@ export const content: IContent[] = addFullPath([
         id: "20",
         name: "Child 1",
         route: "/child-one",
-        isAuth: true,
-        component: () => <h1>Child 1</h1>,
+        component: () => <FirstChild />,
         icon: <HouseIcon />,
       },
       {
         id: "21",
         name: "Child 2",
         route: "/child-two",
-        isAuth: true,
-        component: () => <h1>Child 2</h1>,
+        component: () => <SecondChild />,
         icon: <MapIcon />,
       },
       {
         id: "22",
         name: "Child 3",
         route: "/child-three",
-        isAuth: true,
-        component: () => <h1>Child 3</h1>,
+        component: () => <ThirdChild />,
         icon: <SignpostIcon />,
       },
     ],
@@ -138,8 +128,7 @@ export const content: IContent[] = addFullPath([
     id: "3",
     name: "Parent 3",
     route: "/parent-three",
-    isAuth: true,
-    component: () => <h1>Parent 3</h1>,
+    component: () => <ParentThree />,
     icon: <LandscapeIcon />,
     modules: [],
   },

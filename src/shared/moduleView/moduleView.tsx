@@ -4,10 +4,11 @@ import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 
 interface IModuleView {
-  name: string;
+  name?: string;
+  isFavorites?: boolean;
 }
 
-function ModuleView({ name }: IModuleView) {
+function ModuleView({ name, isFavorites = false }: IModuleView) {
   const [modules, setModules] = useState<IContent[]>([]);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
 
@@ -17,7 +18,8 @@ function ModuleView({ name }: IModuleView) {
   }, []);
 
   useEffect(() => {
-    if (name === "Favorites") {
+    if (isFavorites) {
+      console.log("YESSS, isFavorites");
       const favoriteModules = [];
       for (const id of favoriteIds) {
         const module = flatContent.find((el) => el.id === id);
@@ -30,7 +32,7 @@ function ModuleView({ name }: IModuleView) {
       });
       if (category?.modules) setModules(category.modules);
     }
-  }, [name, favoriteIds]);
+  }, [name, favoriteIds, isFavorites]);
 
   const changeFavorites = (id: string) => {
     const ls = window.localStorage.getItem("favorites");
@@ -50,8 +52,6 @@ function ModuleView({ name }: IModuleView) {
       {modules?.map((module, index) => (
         <Tile
           key={index}
-          title={module.name}
-          icon={module.icon}
           id={module.id}
           isFavorite={favoriteIds.includes(module.id)}
           onChangeFavorite={(id) => changeFavorites(id)}
@@ -66,8 +66,8 @@ function ModuleView({ name }: IModuleView) {
             transform: "translate(-50%, -20%)",
           }}
         >
-          <Typography variant="h4" color="rgba(0, 0, 0, 0.2)">
-            No modules selected
+          <Typography variant="h6" color="rgba(0, 0, 0, 0.2)">
+            No modules
           </Typography>
         </Box>
       )}

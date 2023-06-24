@@ -4,8 +4,7 @@ import { IContent } from "../../content/content";
 
 interface IModuleItem {
   module: IContent;
-  open: boolean;
-  isFavorite: boolean;
+  expanded: boolean;
 }
 
 const SelectedStyle = {
@@ -18,15 +17,15 @@ const SelectedStyle = {
   transform: "translateY(-50%)",
   backgroundColor: "primary.main",
 };
-export const ModuleItem = ({ module, open, isFavorite }: IModuleItem) => {
+export const ModuleItem = ({ module, expanded }: IModuleItem) => {
   const route = module.fullRoute;
-  const isSelectedModule = matchPath(location.pathname, route) && !isFavorite;
+  const isSelectedModule = matchPath(location.pathname, route);
   const navigate = useNavigate();
 
   return (
     <ListItem
       sx={{
-        display: open ? "true" : "none",
+        display: expanded ? "true" : "none",
         padding: "1px 0 1px 3px",
       }}
       onClick={() => navigate(route)}
@@ -49,3 +48,4 @@ export const ModuleItem = ({ module, open, isFavorite }: IModuleItem) => {
     </ListItem>
   );
 };
+

@@ -1,7 +1,7 @@
 # react-navigation
 
 ## TODO
-- Add Child components
-- No modules found text
-- Fix for workaround in re-render
+- Favorites: Change Order
+- Notification when removing favorite in favorite
 - showFavorites: Option in app constants
+- Home Tiles / Buttons
