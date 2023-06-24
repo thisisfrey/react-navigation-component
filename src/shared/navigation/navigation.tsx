@@ -1,24 +1,13 @@
 import * as React from "react";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
-import {
-  Box,
-  Typography,
-  List,
-  ListItemIcon,
-  ListItemText,
-  ListItemButton,
-  ListItem,
-  IconButton,
-  CssBaseline,
-  Tooltip,
-} from "@mui/material";
+import { Box, Typography, List, IconButton, CssBaseline } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import TopBar from "./components/topbar";
 import { content, IContent } from "../content/content";
 import { ReactNode } from "react";
-import { matchPath, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ModuleItem } from "./components/moduleItem";
 import app from "../../config/constants";
 import { favorites } from "../content/favorites";
