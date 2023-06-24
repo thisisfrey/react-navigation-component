@@ -12,6 +12,12 @@ The Navigation Component is a flexible and easy-to-use navigation system designe
 
 - **Responsive Design:** The component is built with responsiveness in mind, ensuring a consistent and user-friendly experience across different devices and screen sizes.
 
+## Demonstration
+
+Check out the live demonstration of the project using CodeSandbox:
+
+<iframe src="CODESANDBOX_URL" title="CodeSandbox Demo" width="100%" height="500px"></iframe>
+
 ## License
 
 The Navigation Component is open-source and released under the MIT License. Feel free to use, modify, and distribute the component in your own projects.
