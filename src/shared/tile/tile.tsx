@@ -10,40 +10,19 @@ interface ITileProps {
   title?: string;
   icon?: JSX.Element;
   id: string;
+  isFavorite: boolean;
+  onChangeFavorite: (id: string) => void;
 }
 
 const Tile = ({
   title = "Title",
   icon = <Icon />,
   id,
+  isFavorite,
+  onChangeFavorite,
 }: ITileProps): JSX.Element => {
   const navigate = useNavigate();
   const module = flatContent.find((content) => id === content.id);
-  const [favorites, setFavorites] = useState<string[]>([]);
-
-  const onSelectFavorite = (id: string) => {
-    const ls = window.localStorage.getItem("favorites");
-    let favoritesLS = ls ? JSON.parse(ls) : [];
-
-    if (!favoritesLS.includes(id)) {
-      favoritesLS.push(id);
-    } else {
-      favoritesLS = favoritesLS.filter((el: string) => el !== id);
-    }
-
-    window.localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-    setFavorites(favoritesLS);
-    //window.dispatchEvent(new Event("onSelectFavorite"));
-  };
-
-  useEffect(() => {
-    try {
-      const favoritesLS = window.localStorage.getItem("favorites");
-      setFavorites(favoritesLS ? JSON.parse(favoritesLS) : []);
-    } catch (error) {
-      setFavorites([]);
-    }
-  }, []);
 
   return module !== undefined ? (
     <Button
@@ -69,10 +48,10 @@ const Tile = ({
         }}
         onClick={(event) => {
           event.stopPropagation();
-          onSelectFavorite(id);
+          onChangeFavorite(id);
         }}
       >
-        {favorites.includes(id) ? (
+        {isFavorite ? (
           <StarIcon sx={{ scale: "1.2" }} />
         ) : (
           <StarBorderIcon sx={{ scale: "1.2" }} />

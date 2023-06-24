@@ -9,36 +9,41 @@ interface IModuleView {
 
 function ModuleView({ name }: IModuleView) {
   const [modules, setModules] = useState<IContent[]>([]);
-  const [tst, setTst] = useState(false);
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log("name?: ", name);
+    const favoritesLS = window.localStorage.getItem("favorites");
+    setFavoriteIds(favoritesLS ? JSON.parse(favoritesLS) : []);
+  }, []);
 
+  useEffect(() => {
     if (name === "Favorites") {
-      getFavorites();
+      const favoriteModules = [];
+      for (const id of favoriteIds) {
+        const module = flatContent.find((el) => el.id === id);
+        if (module) favoriteModules.push(module);
+      }
+      setModules(favoriteModules);
     } else {
       const category = content.find((el) => {
         return el.name === name;
       });
       if (category?.modules) setModules(category.modules);
     }
-  }, [name]);
+  }, [name, favoriteIds]);
 
-  const getFavorites = () => {
-    const favoritesLS = window.localStorage.getItem("favorites");
-    const favoriteIds = favoritesLS ? JSON.parse(favoritesLS) : [];
+  const changeFavorites = (id: string) => {
+    const ls = window.localStorage.getItem("favorites");
+    let favoritesLS = ls ? JSON.parse(ls) : [];
 
-    const favorites: IContent[] = [];
-    for (const id of favoriteIds) {
-      const module = flatContent.find((el) => el.id === id);
-      if (module) favorites.push(module);
+    if (!favoritesLS.includes(id)) {
+      favoritesLS.push(id);
+    } else {
+      favoritesLS = favoritesLS.filter((el: string) => el !== id);
     }
-    setModules(favorites);
+    window.localStorage.setItem("favorites", JSON.stringify(favoritesLS));
+    setFavoriteIds(favoritesLS);
   };
-
-  /*  window.addEventListener("onSelectFavorite", () => {
-    getFavorites();
-  }); */
 
   return (
     <>
@@ -48,6 +53,8 @@ function ModuleView({ name }: IModuleView) {
           title={module.name}
           icon={module.icon}
           id={module.id}
+          isFavorite={favoriteIds.includes(module.id)}
+          onChangeFavorite={(id) => changeFavorites(id)}
         />
       ))}
       {modules?.length === 0 && (

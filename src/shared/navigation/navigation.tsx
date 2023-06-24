@@ -19,6 +19,7 @@ import { content, IContent } from "../content/content";
 import { ReactNode } from "react";
 import { matchPath, useLocation, useNavigate } from "react-router-dom";
 import { ModuleItem } from "./components/moduleItem";
+import app from "../../config/constants";
 
 const drawerWidth = 200;
 
@@ -78,10 +79,6 @@ const ListItemButtonStyle = {
 };
 
 const Navigation = ({ children }: { children: ReactNode }) => {
-  const VERSION = "1.0";
-
-  //const selectedFavoriteModules = useAtomValue(favoriteModules);
-
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const location = useLocation();
@@ -99,7 +96,7 @@ const Navigation = ({ children }: { children: ReactNode }) => {
         >
           <IconButton
             onClick={() => setOpen(!open)}
-            sx={{ m: 1, ":focus": { borderRadius: "8px" } }}
+            sx={{ m: 1, ":focus": { outline: "none" } }}
           >
             {open ? (
               <KeyboardDoubleArrowLeftIcon />
@@ -221,7 +218,7 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             }}
           >
             <Typography variant="caption" color="rgba(0, 0, 0, 0.6)">
-              Version {VERSION} <br />© Copyright {new Date().getFullYear()}
+              Version {app.VERSION} <br />© Copyright {new Date().getFullYear()}
             </Typography>
           </Box>
         )}
