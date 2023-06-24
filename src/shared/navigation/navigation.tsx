@@ -97,7 +97,10 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             justifyContent: "center",
           }}
         >
-          <IconButton onClick={() => setOpen(!open)} sx={{ m: 1 }}>
+          <IconButton
+            onClick={() => setOpen(!open)}
+            sx={{ m: 1, ":focus": { borderRadius: "8px" } }}
+          >
             {open ? (
               <KeyboardDoubleArrowLeftIcon />
             ) : (
@@ -161,7 +164,9 @@ const Navigation = ({ children }: { children: ReactNode }) => {
                     >
                       <ListItemIcon
                         sx={{
-                          color: isInSelectedCategory ? "#61dbfb" : "inherit",
+                          color: isInSelectedCategory
+                            ? "primary.main"
+                            : "inherit",
                           minWidth: 0,
                           mr: open ? 3 : "auto",
                           justifyContent: "center",

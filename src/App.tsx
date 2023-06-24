@@ -1,16 +1,20 @@
 import "./App.css";
 import Navigation from "./shared/navigation/navigation";
 import Routing from "./shared/routing/Routing";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "./config/theme";
 
 function App() {
   return (
-    <Navigation>
-      <Routing />
-    </Navigation>
+    <ThemeProvider theme={theme}>
+      <CssBaseline>
+        <Navigation>
+          <Routing />
+        </Navigation>
+      </CssBaseline>
+    </ThemeProvider>
   );
 }
 
 export default App;
-
-
 

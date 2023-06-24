@@ -54,10 +54,9 @@ const Tile = ({
         padding: "5px",
         width: "10rem",
         height: "10rem",
-        backgroundColor: "#61dbfb",
-        color: "white",
         cursor: "pointer",
       }}
+      variant="contained"
       onClick={() => navigate(module.fullRoute)}
     >
       <Box

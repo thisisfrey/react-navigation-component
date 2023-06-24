@@ -78,11 +78,15 @@ function Home() {
                 margin: "0.7rem",
               }}
             >
-              <Box sx={{ color: "#61dbfb", transform: "scale(2.2)", mt: 1 }}>
+              <Box
+                sx={{ color: "primary.main", transform: "scale(2.2)", mt: 1 }}
+              >
                 {category.icon}
               </Box>
 
-              <Typography sx={{ mt: 2, fontSize: "20px", color: "#61dbfb" }}>
+              <Typography
+                sx={{ mt: 2, fontSize: "20px", color: "primary.main" }}
+              >
                 {category.name}
               </Typography>
             </Button>

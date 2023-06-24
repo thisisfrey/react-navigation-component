@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import reactLogo from "../../../assets/react.svg";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { useNavigate } from "react-router-dom";
 
 export interface ITopBar {
   open?: boolean;
@@ -32,6 +33,7 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const TopBar = ({ open = false }: ITopBar): JSX.Element => {
+  const navigate = useNavigate();
   return (
     <>
       <AppBar
@@ -51,10 +53,14 @@ const TopBar = ({ open = false }: ITopBar): JSX.Element => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              cursor: "pointer",
             }}
+            onClick={() => navigate("/")}
           >
             <img src={reactLogo} alt="reactLogo" />
-            <Typography sx={{ m: 2, fontSize: "32px" }}>React</Typography>
+            <Typography sx={{ m: 2, fontSize: "32px", color: "primary.main" }}>
+              React
+            </Typography>
           </Box>
           <Box
             sx={{
