@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { flatContent } from "src/shared/content/content";
 import { favorites } from "src/shared/content/favorites";
-import Home from "src/modules/Home/Home";
+import Home from "src/modules/HomeX/HomeX";
 
 const pages = [
   {
