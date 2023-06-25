@@ -26,6 +26,7 @@ const useFavorites = (): IUseFavorites => {
       favoritesLS = favoritesLS.filter((el: string) => el !== id);
     }
     window.localStorage.setItem(key, JSON.stringify(favoritesLS));
+    window.dispatchEvent(new Event("changeFavorites"));
     setFavoritesLS(favoritesLS);
   };
 

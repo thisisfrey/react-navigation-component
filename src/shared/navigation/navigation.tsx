@@ -6,12 +6,12 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import TopBar from "./components/topbar";
 import { content, IContent } from "../content/content";
-import { ReactNode } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { ReactNode, useState } from "react";
 import { ModuleItem } from "./components/moduleItem";
 import app from "../../config/constants";
-import { favorites } from "../content/favorites";
+import { favorites as favoriteContent } from "../content/favorites";
 import { NavItem } from "./components/navItem";
+import useFavorites from "src/hooks/useFavorites";
 
 const drawerWidth = 200;
 
@@ -61,9 +61,13 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const Navigation = ({ children }: { children: ReactNode }) => {
-  const navigate = useNavigate();
-  const [isExpanded, setOpen] = React.useState(false);
-  const location = useLocation();
+  const [isExpanded, setOpen] = useState(false);
+  const { favorites } = useFavorites();
+
+  // wa
+  window.addEventListener("changeFavorites", () => {
+    console.log("changeFavorites!");
+  });
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -110,7 +114,13 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             },
           }}
         >
-          <NavItem el={favorites} expanded={isExpanded} favorites={true} />
+          {favorites.length > 0 && (
+            <NavItem
+              el={favoriteContent}
+              expanded={isExpanded}
+              favorites={true}
+            />
+          )}
 
           {content.map((category: IContent, index) => {
             return (

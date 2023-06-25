@@ -37,9 +37,7 @@ function ModuleView({ name, isFavorites = false }: IModuleView) {
           key={index}
           id={module.id}
           isFavorite={favorites.includes(module.id)}
-          onChangeFavorite={(id) => {
-            changeFavorites(id), console.log("x");
-          }}
+          onChangeFavorite={(id) => changeFavorites(id)}
         />
       ))}
       {modules?.length === 0 && (
