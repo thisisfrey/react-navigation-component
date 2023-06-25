@@ -2,6 +2,7 @@ import Tile from "../../shared/tile/tile";
 import { content, flatContent, IContent } from "../../shared/content/content";
 import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
+import useFavorites from "src/hooks/useFavorites";
 
 interface IModuleView {
   name?: string;
@@ -10,17 +11,13 @@ interface IModuleView {
 
 function ModuleView({ name, isFavorites = false }: IModuleView) {
   const [modules, setModules] = useState<IContent[]>([]);
-  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
 
-  useEffect(() => {
-    const favoritesLS = window.localStorage.getItem("favorites");
-    setFavoriteIds(favoritesLS ? JSON.parse(favoritesLS) : []);
-  }, []);
+  const { favorites, changeFavorites } = useFavorites();
 
   useEffect(() => {
     if (isFavorites) {
       const favoriteModules = [];
-      for (const id of favoriteIds) {
+      for (const id of favorites) {
         const module = flatContent.find((el) => el.id === id);
         if (module) favoriteModules.push(module);
       }
@@ -31,20 +28,7 @@ function ModuleView({ name, isFavorites = false }: IModuleView) {
       });
       if (category?.modules) setModules(category.modules);
     }
-  }, [name, favoriteIds, isFavorites]);
-
-  const changeFavorites = (id: string) => {
-    const ls = window.localStorage.getItem("favorites");
-    let favoritesLS = ls ? JSON.parse(ls) : [];
-
-    if (!favoritesLS.includes(id)) {
-      favoritesLS.push(id);
-    } else {
-      favoritesLS = favoritesLS.filter((el: string) => el !== id);
-    }
-    window.localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-    setFavoriteIds(favoritesLS);
-  };
+  }, [name, isFavorites, favorites]);
 
   return (
     <>
@@ -52,8 +36,10 @@ function ModuleView({ name, isFavorites = false }: IModuleView) {
         <Tile
           key={index}
           id={module.id}
-          isFavorite={favoriteIds.includes(module.id)}
-          onChangeFavorite={(id) => changeFavorites(id)}
+          isFavorite={favorites.includes(module.id)}
+          onChangeFavorite={(id) => {
+            changeFavorites(id), console.log("x");
+          }}
         />
       ))}
       {modules?.length === 0 && (
