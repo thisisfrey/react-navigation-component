@@ -109,13 +109,12 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             },
           }}
         >
-          {favorites.length > 0 && (
-            <NavItem
-              el={favoriteContent}
-              expanded={isExpanded}
-              favorites={true}
-            />
-          )}
+          {/* {favorites.length > 0 && () */}
+          <NavItem
+            el={favoriteContent}
+            expanded={isExpanded}
+            favorites={true}
+          />
 
           {content.map((category: IContent, index) => {
             return (

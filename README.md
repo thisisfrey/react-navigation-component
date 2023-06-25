@@ -12,11 +12,11 @@ The Navigation Component is a flexible and easy-to-use navigation system designe
 
 - **Responsive Design:** The component is built with responsiveness in mind, ensuring a consistent and user-friendly experience across different devices and screen sizes.
 
-<!-- ## Demonstration
+## Demonstration
 
-Check out the live demonstration of the project using CodeSandbox:
+Check out the live demonstration of the project using CodeSandbox. Click [here](https://d7vvs6-5000.csb.app/favorites) to access the interactive sandbox environment for trying out the code.
 
-<iframe src="CODESANDBOX_URL" title="CodeSandbox Demo" width="100%" height="500px"></iframe> -->
+<iframe src="https://d7vvs6-5000.csb.app/favorites" title="CodeSandbox Demo" width="100%" height="500px"></iframe>
 
 ## License
 
