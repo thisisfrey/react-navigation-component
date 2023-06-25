@@ -64,11 +64,6 @@ const Navigation = ({ children }: { children: ReactNode }) => {
   const [isExpanded, setOpen] = useState(false);
   const { favorites } = useFavorites();
 
-  // wa
-  window.addEventListener("changeFavorites", () => {
-    console.log("changeFavorites!");
-  });
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
