@@ -3,6 +3,7 @@ import { content, flatContent, IContent } from "../../shared/content/content";
 import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import useFavorites from "src/hooks/useFavorites";
+import Snackbar, { ESeverity } from "../snackbar/snackbar";
 
 interface IModuleView {
   name?: string;
@@ -11,6 +12,8 @@ interface IModuleView {
 
 function ModuleView({ name, isFavorites = false }: IModuleView) {
   const [modules, setModules] = useState<IContent[]>([]);
+  const [showSnackbar, setShowSnackbar] = useState(false);
+  const [sbMessage, setSbMessage] = useState("");
 
   const { favorites, changeFavorites } = useFavorites();
 
@@ -37,7 +40,14 @@ function ModuleView({ name, isFavorites = false }: IModuleView) {
           key={index}
           id={module.id}
           isFavorite={favorites.includes(module.id)}
-          onChangeFavorite={(id) => changeFavorites(id)}
+          onChangeFavorite={(id) => {
+            changeFavorites(id), setShowSnackbar(true);
+            setSbMessage(
+              favorites.includes(module.id)
+                ? `Removed ${module.name} from Favorites`
+                : `Added ${module.name} to Favorites`
+            );
+          }}
         />
       ))}
       {modules?.length === 0 && (
@@ -54,6 +64,12 @@ function ModuleView({ name, isFavorites = false }: IModuleView) {
           </Typography>
         </Box>
       )}
+      <Snackbar
+        open={showSnackbar}
+        message={sbMessage}
+        severity={ESeverity.SUCCESS}
+        closeSnackbar={() => setShowSnackbar(false)}
+      />
     </>
   );
 }

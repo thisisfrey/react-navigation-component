@@ -29,14 +29,19 @@ const Tile = ({
   return module ? (
     <Button
       sx={{
-        backgroundColor: "primary.light",
-        color: "white",
-        boxShadow: 2,
+        backgroundColor: "white",
+        color: "primary.main",
+        boxShadow: 3,
         margin: "1rem",
         padding: "5px",
         width: "8rem",
         height: "8rem",
         cursor: "pointer",
+        "&:hover": {
+          backgroundColor: "primary.light",
+          color: "white",
+          boxShadow: "none",
+        },
       }}
       variant="outlined"
       onClick={() => navigate(module.fullRoute)}
@@ -79,7 +84,9 @@ const Tile = ({
         >
           {icon ? icon : module.icon}
         </Box>
-        <Typography>{name ? name : module.name}</Typography>
+        <Typography sx={{ fontSize: "18px", margin: "3px" }}>
+          {name ? name : module.name}
+        </Typography>
       </Box>
     </Button>
   ) : (

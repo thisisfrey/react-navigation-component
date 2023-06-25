@@ -26,24 +26,17 @@ export const ModuleItem = ({ module, expanded }: IModuleItem) => {
     <ListItem
       sx={{
         display: expanded ? "true" : "none",
-        padding: "1px 0 1px 3px",
+        marginLeft: "10px",
+        padding: "1px",
       }}
       onClick={() => navigate(route)}
     >
       <ListItemButton
         sx={{
-          paddingTop: "2px",
-          paddingBottom: "2px",
           "&:after": isSelectedModule ? SelectedStyle : {},
         }}
       >
-        <ListItemText
-          sx={{
-            paddingTop: "2px",
-            paddingBottom: "2px",
-          }}
-          secondary={module.name}
-        />
+        <ListItemText secondary={module.name} />
       </ListItemButton>
     </ListItem>
   );
