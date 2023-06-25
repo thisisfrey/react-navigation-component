@@ -2,6 +2,10 @@
 
 The Navigation Component is a flexible and easy-to-use navigation system designed to help you navigate through different categories and modules within your application. It provides a clear and structured way to organize your navigation hierarchy, making it simple to extend and modify for any use case.
 
+## Demonstration
+
+Check out the live demonstration of the project using CodeSandbox. Click [here](https://pshdtz-5000.csb.app/) to access the interactive sandbox environment for trying out the code.
+
 ## Features
 
 - **Clear Hierarchy:** The component allows you to define a hierarchical structure for your navigation, with categories as parents and modules as children. This hierarchy provides a clear and logical organization for your application's navigation.
@@ -12,11 +16,6 @@ The Navigation Component is a flexible and easy-to-use navigation system designe
 
 - **Responsive Design:** The component is built with responsiveness in mind, ensuring a consistent and user-friendly experience across different devices and screen sizes.
 
-## Demonstration
-
-Check out the live demonstration of the project using CodeSandbox. Click [here](https://d7vvs6-5000.csb.app/favorites) to access the interactive sandbox environment for trying out the code.
-
-<iframe src="https://d7vvs6-5000.csb.app/favorites" title="CodeSandbox Demo" width="100%" height="500px"></iframe>
 
 ## License
 
