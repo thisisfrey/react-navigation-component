@@ -23,69 +23,78 @@ const Breadcrumbs = ({ links }: IBreadcrumbProps): JSX.Element => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ width: "100%", mb: 2 }}>
-      <MuiBreadcrumbs
-        separator={
-          <KeyboardArrowRightIcon
-            sx={{
-              color: "#ccc",
-            }}
-          />
-        }
+    <MuiBreadcrumbs
+      separator={
+        <KeyboardArrowRightIcon
+          sx={{
+            color: "#ccc",
+          }}
+        />
+      }
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        p: 1,
+        /* backgroundColor: "white",
+        borderRadius: "16px", */
+        borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+        marginBottom: 2,
+      }}
+    >
+      <Box
         sx={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
+          color: "rgba(0, 0, 0, 0.6)",
         }}
       >
-        <Box
+        <Link
           sx={{
+            cursor: "pointer",
+            margin: 0,
+            padding: 0,
+            width: "fit-content",
+            height: "fit-content",
             display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             color: "rgba(0, 0, 0, 0.6)",
           }}
+          onClick={() => navigate("/")}
         >
-          <Link
-            sx={{
-              cursor: "pointer",
-              margin: 0,
-              padding: 0,
-              width: "fit-content",
-              height: "fit-content",
-              display: "flex",
-              color: "rgba(0, 0, 0, 0.6)",
-            }}
-            onClick={() => navigate("/")}
-          >
-            <HomeOutlinedIcon />
-          </Link>
-        </Box>
-        {links.slice(0, -1).map((el, index) => {
-          if (el.disabled) {
-            return (
-              <Typography key={index} sx={{ color: "rgba(0, 0, 0, 0.6)", fontSize: "18px" }}>
-                {el.name}
-              </Typography>
-            );
-          } else {
-            return (
-              <Link
-                sx={{ color: "rgba(0, 0, 0, 0.6)", cursor: "pointer", fontSize: "18px" }}
-                underline="hover"
-                key={index}
-                onClick={() => (el.link ? navigate(el.link) : null)}
-              >
-                {el.name}
-              </Link>
-            );
-          }
-        })}
-        <Typography sx={{ color: "rgba(0, 0, 0, 0.6)", fontSize: "18px" }}>
-          {links.slice(-1)[0]?.name}
-        </Typography>
-      </MuiBreadcrumbs>
-      <Divider sx={{ mt: 1 }} />
-    </Box>
+          <HomeOutlinedIcon />
+        </Link>
+      </Box>
+      {links.slice(0, -1).map((el, index) => {
+        if (el.disabled) {
+          return (
+            <Typography
+              key={index}
+              sx={{ color: "rgba(0, 0, 0, 0.6)", fontSize: "18px" }}
+            >
+              {el.name}
+            </Typography>
+          );
+        } else {
+          return (
+            <Link
+              sx={{
+                color: "rgba(0, 0, 0, 0.6)",
+                cursor: "pointer",
+                fontSize: "18px",
+              }}
+              underline="hover"
+              key={index}
+              onClick={() => (el.link ? navigate(el.link) : null)}
+            >
+              {el.name}
+            </Link>
+          );
+        }
+      })}
+      <Typography sx={{ color: "rgba(0, 0, 0, 0.6)", fontSize: "18px" }}>
+        {links.slice(-1)[0]?.name}
+      </Typography>
+    </MuiBreadcrumbs>
   );
 };
 

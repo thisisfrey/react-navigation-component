@@ -52,7 +52,7 @@ function Home() {
             mt: 5,
           }}
         >
-          {[favorites,...content].map((category, index) => (
+          {[favorites, ...content].map((category, index) => (
             <React.Fragment key={index}>
               <Button
                 onClick={() => navigate(category.route)}
@@ -62,7 +62,7 @@ function Home() {
                   borderRadius: "16px",
                   flexDirection: "column",
                   padding: "10px",
-                  boxShadow: 2,
+                  boxShadow: 1,
                   display: "flex",
                   alignItems: "center",
                   textAlign: "center",

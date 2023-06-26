@@ -31,7 +31,7 @@ const Tile = ({
       sx={{
         backgroundColor: "white",
         color: "primary.main",
-        boxShadow: 3,
+        boxShadow: 1,
         margin: "1rem",
         padding: "5px",
         width: "8rem",
@@ -40,7 +40,6 @@ const Tile = ({
         "&:hover": {
           backgroundColor: "primary.light",
           color: "white",
-          boxShadow: "none",
         },
       }}
       variant="outlined"
