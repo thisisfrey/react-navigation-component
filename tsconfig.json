@@ -20,7 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     // src
-    "baseUrl": "./",
+    //"baseUrl": "./",
+    "baseUrl": "/react-navigation-component/",
     "paths": {
       "src/*": ["src/*"]
     }
@@ -29,5 +30,6 @@
   "include": ["./src/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
+
 
 
