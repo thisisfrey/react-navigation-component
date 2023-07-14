@@ -12,7 +12,13 @@ export default defineConfig({
       src: "/src",
     },
   },
+  base: "/react-navigation-component/", 
 });
+
+// https://thisisfrey.github.io/react-navigation-component/
+
+
+
 
 
 
