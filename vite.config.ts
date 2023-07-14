@@ -12,7 +12,7 @@ export default defineConfig({
     },
   },
   //base: "./"
-  base: "/react-navigation-component/",
+  base: "./react-navigation-component/",
 });
 
 // https://thisisfrey.github.io/react-navigation-component/
