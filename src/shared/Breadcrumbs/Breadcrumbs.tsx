@@ -1,4 +1,9 @@
-import { Box, Breadcrumbs as MuiBreadcrumbs, Link, Typography } from "@mui/material";
+import {
+  Box,
+  Breadcrumbs as MuiBreadcrumbs,
+  Link,
+  Typography,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -18,13 +23,7 @@ const Breadcrumbs = ({ links }: IBreadcrumbProps): JSX.Element => {
 
   return (
     <MuiBreadcrumbs
-      separator={
-        <KeyboardArrowRightIcon
-          sx={{
-            color: "#ccc",
-          }}
-        />
-      }
+      separator={<KeyboardArrowRightIcon />}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -33,6 +32,10 @@ const Breadcrumbs = ({ links }: IBreadcrumbProps): JSX.Element => {
         borderRadius: "16px", */
         borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
         marginBottom: 2,
+        backgroundColor: "#fff",
+        border: "1px solid rgba(0, 0, 0, 0.12)",
+        borderRadius: "6px",
+        padding: "0.7rem",
       }}
     >
       <Box

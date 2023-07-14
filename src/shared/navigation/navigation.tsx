@@ -1,15 +1,15 @@
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
-import { Box, Typography, List, IconButton, CssBaseline } from "@mui/material";
+import { Box, List, IconButton, CssBaseline, Tooltip } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import TopBar from "./components/topbar";
-import { content, IContent } from "../content/content";
+import { content, IContent } from "../content/Content";
 import { ReactNode, useState } from "react";
 import { ModuleItem } from "./components/moduleItem";
-import app from "../../config/constants";
-import { favorites as favoriteContent } from "../content/favorites";
+import { favorites as favoriteContent } from "../content/Favorites";
 import { NavItem } from "./components/navItem";
+//import app from "../../config/constants";
 
 const drawerWidth = 200;
 
@@ -66,23 +66,6 @@ const Navigation = ({ children }: { children: ReactNode }) => {
       <CssBaseline />
       <TopBar expanded={isExpanded} />
       <Drawer variant="permanent" open={isExpanded}>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <IconButton
-            onClick={() => setOpen(!isExpanded)}
-            sx={{ m: 1, ":focus": { outline: "none" } }}
-          >
-            {isExpanded ? (
-              <KeyboardDoubleArrowLeftIcon />
-            ) : (
-              <KeyboardDoubleArrowRightIcon />
-            )}
-          </IconButton>
-        </Box>
         <List
           sx={{
             overflowX: "hidden",
@@ -132,7 +115,28 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             );
           })}
         </List>
-        {isExpanded && (
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Tooltip title={!isExpanded && "Expand"} placement="right">
+            <IconButton
+              onClick={() => setOpen(!isExpanded)}
+              sx={{ m: 1, ":focus": { outline: "none" } }}
+            >
+              {isExpanded ? (
+                <KeyboardDoubleArrowLeftIcon />
+              ) : (
+                <KeyboardDoubleArrowRightIcon />
+              )}
+            </IconButton>
+          </Tooltip>
+        </Box>
+
+        {/* {isExpanded && (
           <Box
             sx={{
               display: "flex",
@@ -145,7 +149,7 @@ const Navigation = ({ children }: { children: ReactNode }) => {
               Version {app.VERSION} <br />© Copyright {new Date().getFullYear()}
             </Typography>
           </Box>
-        )}
+        )} */}
       </Drawer>
       <Box
         sx={{

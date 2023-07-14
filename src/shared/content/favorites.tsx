@@ -1,5 +1,5 @@
 import ModuleView from "../moduleView/moduleView";
-import { IContent } from "./content";
+import { IContent } from "./Content";
 import StarIcon from "@mui/icons-material/Star";
 
 export const favorites: IContent = {
@@ -7,6 +7,6 @@ export const favorites: IContent = {
   name: "Favorites",
   route: "/favorites",
   fullRoute: "/favorites",
-  component: () => <ModuleView isFavorites={true}/>,
+  component: () => <ModuleView isFavorites={true} />,
   icon: <StarIcon />,
 };

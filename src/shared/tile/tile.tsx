@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { flatContent } from "../../shared/content/content";
+import { flatContent } from "../content/Content";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { flatContent } from "src/shared/content/content";
-import { favorites } from "src/shared/content/favorites";
+import { flatContent } from "src/shared/content/Content";
+import { favorites } from "src/shared/content/Favorites";
 import Home from "src/modules/Home/Home";
 
 const pages = [
@@ -18,11 +18,7 @@ const Routing = () => {
         <Route path={`${page.path}`} element={page.element} key={index} />
       ))}
       {flatContent.map((el) => (
-        <Route
-          path={el.fullRoute}
-          element={el.component()}
-          key={el.id}
-        />
+        <Route path={el.fullRoute} element={el.component()} key={el.id} />
       ))}
       <Route path={favorites.fullRoute} element={favorites.component()} />
     </Routes>
