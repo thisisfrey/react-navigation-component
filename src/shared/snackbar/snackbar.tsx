@@ -22,7 +22,7 @@ function Snackbar({ open, message, severity, closeSnackbar }: ISnackbar) {
     if (reason === "clickaway") {
       return;
     }
-
+    console.log(event);
     closeSnackbar();
   };
 

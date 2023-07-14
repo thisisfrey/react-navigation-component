@@ -1,10 +1,4 @@
-import {
-  Box,
-  Breadcrumbs as MuiBreadcrumbs,
-  Link,
-  Typography,
-  Divider,
-} from "@mui/material";
+import { Box, Breadcrumbs as MuiBreadcrumbs, Link, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";

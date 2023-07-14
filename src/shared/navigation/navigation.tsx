@@ -1,4 +1,3 @@
-import * as React from "react";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import { Box, Typography, List, IconButton, CssBaseline } from "@mui/material";
@@ -11,7 +10,6 @@ import { ModuleItem } from "./components/moduleItem";
 import app from "../../config/constants";
 import { favorites as favoriteContent } from "../content/favorites";
 import { NavItem } from "./components/navItem";
-import useFavorites from "src/hooks/useFavorites";
 
 const drawerWidth = 200;
 
@@ -62,7 +60,6 @@ const Drawer = styled(MuiDrawer, {
 
 const Navigation = ({ children }: { children: ReactNode }) => {
   const [isExpanded, setOpen] = useState(false);
-  const { favorites } = useFavorites();
 
   return (
     <Box sx={{ display: "flex" }}>
