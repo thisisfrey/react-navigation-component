@@ -4,10 +4,10 @@ import { Box, List, IconButton, CssBaseline, Tooltip } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import TopBar from "./components/topbar";
-import { content, IContent } from "../content/Content";
+import { content, IContent } from "../content/ContentX";
 import { ReactNode, useState } from "react";
 import { ModuleItem } from "./components/moduleItem";
-import { favorites as favoriteContent } from "../content/Favorites";
+import { favorites as favoriteContent } from "../content/FavoritesX";
 import { NavItem } from "./components/navItem";
 //import app from "../../config/constants";
 

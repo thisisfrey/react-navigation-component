@@ -1,5 +1,5 @@
 import { matchPath, useNavigate } from "react-router-dom";
-import { IContent } from "../../content/Content";
+import { IContent } from "../../content/ContentX";
 import {
   Box,
   ListItem,

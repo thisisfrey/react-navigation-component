@@ -1,6 +1,6 @@
 import { matchPath, useNavigate } from "react-router-dom";
 import { ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { IContent } from "../../content/Content";
+import { IContent } from "../../content/ContentX";
 
 interface IModuleItem {
   module: IContent;

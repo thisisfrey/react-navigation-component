@@ -1,5 +1,5 @@
 import Tile from "../../shared/tile/tile";
-import { content, flatContent, IContent } from "../content/Content";
+import { content, flatContent, IContent } from "../content/ContentX";
 import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import useFavorites from "src/hooks/useFavorites";
