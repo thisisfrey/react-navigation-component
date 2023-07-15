@@ -1,5 +1,5 @@
 import ModuleView from "../moduleView/moduleView";
-import { IContent } from "./ContentX";
+import { IContent } from "./Content";
 import StarIcon from "@mui/icons-material/Star";
 
 export const favorites: IContent = {

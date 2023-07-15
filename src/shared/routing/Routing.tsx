@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { flatContent } from "src/shared/content/ContentX";
-import { favorites } from "src/shared/content/FavoritesX";
+import { flatContent } from "src/shared/content/Content";
+import { favorites } from "src/shared/content/Favorites";
 import Home from "src/modules/Home/Home";
 
 const pages = [

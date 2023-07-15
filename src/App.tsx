@@ -1,5 +1,5 @@
 import "./App.css";
-import Navigation from "./shared/navigation/NavigationX";
+import Navigation from "./shared/navigation/Navigation";
 import Routing from "./shared/routing/Routing";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "./config/theme";
