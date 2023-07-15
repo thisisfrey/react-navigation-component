@@ -3,8 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
-  base: "./",
-  //base: "/react-navigation-component/",
+  base: "/react-navigation-component/",
   server: {
     port: 5000,
   },
@@ -14,8 +13,6 @@ export default defineConfig({
     },
   },
 });
-
-// https://thisisfrey.github.io/react-navigation-component/
 
 
 
