@@ -2,9 +2,10 @@
 
 The Navigation Component is a flexible and easy-to-use navigation system designed to help you navigate through different categories and modules within your application. It provides a clear and structured way to organize your navigation hierarchy, making it simple to extend and modify for any use case.
 
-## Demonstration
+## Demo
+To access the live demo of this project, please visit the GitHub Pages deployment at [https://thisisfrey.github.io/react-navigation-component/](https://thisisfrey.github.io/react-navigation-component/). Here, you will find the deployed version of the web application or website, ready to be explored and tested.
 
-Check out the live demonstration of the project using CodeSandbox. Click [here](https://pshdtz-5000.csb.app/) to access the interactive sandbox environment for trying out the code.
+Feel free to interact with the demo by navigating through its various pages, submitting forms, or interacting with interactive components. This provides an immersive experience that demonstrates the functionality and features of the project.
 
 ## Features
 
