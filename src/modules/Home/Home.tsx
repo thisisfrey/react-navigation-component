@@ -3,7 +3,7 @@ import { Box, Typography, Button } from "@mui/material";
 import { content } from "../../shared/content/Content";
 import { favorites } from "../../shared/content/Favorites";
 import { useNavigate } from "react-router-dom";
-//import BackgroundImg from "../../assets/landing.jpg";
+import BackgroundImg from "../../assets/bg_3.jpg";
 
 function Home() {
   const navigate = useNavigate();
@@ -26,14 +26,14 @@ function Home() {
           left: "0",
           width: "100vw",
           height: "100vh",
-          backgroundImage: `url(../../assets/landing.jpg)`,
+          backgroundImage: `url("${BackgroundImg}")`,
           backgroundSize: "cover",
           overflowY: "hidden",
         }}
       />
       <Box
         sx={{
-          mt: 3,
+          mt: 5,
           zIndex: 100,
           display: "flex",
           alignItems: "left",
@@ -41,7 +41,7 @@ function Home() {
           color: "black",
         }}
       >
-        <Typography variant="h2">Welcome</Typography>
+        <Typography variant="h1">Welcome</Typography>
         <Typography variant="h5" sx={{ mt: 1 }}>
           Where do you want to start?
         </Typography>
@@ -89,3 +89,6 @@ function Home() {
 }
 
 export default Home;
+
+
+
