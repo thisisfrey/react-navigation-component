@@ -1,13 +1,6 @@
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
-import {
-  Box,
-  List,
-  CssBaseline,
-  ListItemIcon,
-  ListItemText,
-  ListItemButton,
-} from "@mui/material";
+import { Box, List, CssBaseline, ListItemIcon, ListItemButton } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import TopBar from "./components/topbar";
