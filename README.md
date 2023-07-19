@@ -3,6 +3,7 @@
 The Navigation Component is a flexible and easy-to-use navigation system designed to help you navigate through different categories and modules within your application. It provides a clear and structured way to organize your navigation hierarchy, making it simple to extend and modify for any use case.
 
 ## Demo
+
 To access the live demo of this project, please visit [https://thisisfrey.github.io/react-navigation-component/](https://thisisfrey.github.io/react-navigation-component/). Here, you will find the deployed version of the web application or website, ready to be explored and tested.
 
 Feel free to interact with the demo by navigating through its various pages, submitting forms, or interacting with interactive components. This provides an immersive experience that demonstrates the functionality and features of the project.
@@ -17,11 +18,6 @@ Feel free to interact with the demo by navigating through its various pages, sub
 
 - **Responsive Design:** The component is built with responsiveness in mind, ensuring a consistent and user-friendly experience across different devices and screen sizes.
 
-
-## License
-
-The Navigation Component is open-source and released under the MIT License. Feel free to use, modify, and distribute the component in your own projects.
-
 ## Special Thanks
 
 I would like to thank all the contributors who have helped make this Navigation Component possible.
@@ -35,3 +31,7 @@ Further thanks go to [Vincent Menzel](https://github.com/VincentMenzel) for his 
 If you have any questions, suggestions, or feedback, you can reach out to the project maintainers.
 
 Thank you for choosing the React Navigation Component! We hope it helps you create a seamless and intuitive navigation experience for your application.
+
+## License
+
+The Navigation Component is open-source and released under the MIT License. Feel free to use, modify, and distribute the component in your own projects.
