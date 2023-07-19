@@ -1,6 +1,15 @@
 import { styled, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
-import { Box, List, IconButton, CssBaseline, Tooltip } from "@mui/material";
+import {
+  Box,
+  List,
+  IconButton,
+  CssBaseline,
+  Tooltip,
+  ListItemIcon,
+  ListItemText,
+  ListItemButton,
+} from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import TopBar from "./components/topbar";
@@ -101,8 +110,8 @@ const Navigation = ({ children }: { children: ReactNode }) => {
               <Box sx={{ marginBottom: "8px" }} key={index}>
                 <NavItem
                   el={category}
-                  expanded={isExpanded}
                   favorites={false}
+                  expanded={isExpanded}
                 />
                 {category.modules?.map((module: IContent, index) => (
                   <ModuleItem
@@ -123,16 +132,34 @@ const Navigation = ({ children }: { children: ReactNode }) => {
           }}
         >
           <Tooltip title={!isExpanded && "Expand"} placement="right">
-            <IconButton
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: isExpanded ? "initial" : "center",
+                px: 2.5,
+              }}
               onClick={() => setOpen(!isExpanded)}
-              sx={{ m: 1, ":focus": { outline: "none" } }}
             >
-              {isExpanded ? (
-                <KeyboardDoubleArrowLeftIcon />
-              ) : (
-                <KeyboardDoubleArrowRightIcon />
-              )}
-            </IconButton>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: isExpanded ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                {isExpanded ? (
+                  <KeyboardDoubleArrowLeftIcon />
+                ) : (
+                  <KeyboardDoubleArrowRightIcon />
+                )}
+              </ListItemIcon>
+              <ListItemText
+                primary="Collapse"
+                sx={{
+                  opacity: isExpanded ? 1 : 0,
+                }}
+              />
+            </ListItemButton>
           </Tooltip>
         </Box>
 
