@@ -46,6 +46,7 @@ const TopBar = ({ expanded = false }: ITopBar): JSX.Element => {
         }}
         position="fixed"
         open={expanded}
+        elevation={0}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Box

@@ -1,13 +1,13 @@
 import { createTheme } from "@mui/material";
 const { palette } = createTheme();
-import app from "./constants";
+import constants from "./constants";
 
 const theme = createTheme({
   palette: {
     //mode: "dark",
     primary: palette.augmentColor({
       color: {
-        main: app.THEME_COLOR,
+        main: constants.THEME_COLOR,
       },
     }),
   },
