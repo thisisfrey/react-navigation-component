@@ -47,7 +47,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
   height: "calc(100vh - 70px)",
   marginTop: "70px",
-  padding: "5px",
 });
 
 const Drawer = styled(MuiDrawer, {
@@ -131,7 +130,7 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             justifyContent: "center",
           }}
         >
-          <Tooltip title={!isExpanded && "Expand"} placement="right">
+          {/* <Tooltip title={!isExpanded ? "Expand" : ""} placement="right"> */}
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -160,7 +159,7 @@ const Navigation = ({ children }: { children: ReactNode }) => {
                 }}
               />
             </ListItemButton>
-          </Tooltip>
+          {/* </Tooltip> */}
         </Box>
 
         {/* {isExpanded && (
@@ -200,3 +199,4 @@ const Navigation = ({ children }: { children: ReactNode }) => {
 };
 
 export default Navigation;
+
