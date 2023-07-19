@@ -1,33 +1,27 @@
 import { matchPath, useNavigate } from "react-router-dom";
 import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { IContent } from "../../content/Content";
+import constants from "src/config/constants";
+import { SelectedStyle } from "src/config/styles";
 
 interface IModuleItem {
   module: IContent;
   expanded: boolean;
 }
 
-const SelectedStyle = {
-  content: '""',
-  height: "85%",
-  width: "4px",
-  position: "absolute",
-  right: "0",
-  top: "50%",
-  transform: "translateY(-50%)",
-  backgroundColor: "primary.main",
-};
 export const ModuleItem = ({ module, expanded }: IModuleItem) => {
   const route = module.fullRoute;
-  const isSelectedModule = matchPath(location.pathname, route);
+  const isSelectedModule = matchPath(
+    location.pathname,
+    constants.BASE_URL + route
+  );
   const navigate = useNavigate();
 
   return (
     <ListItem
       sx={{
         display: expanded ? "true" : "none",
-        marginLeft: "10px",
-        padding: "1px",
+        padding: "0",
       }}
       onClick={() => navigate(route)}
     >
@@ -36,7 +30,7 @@ export const ModuleItem = ({ module, expanded }: IModuleItem) => {
           "&:after": isSelectedModule ? SelectedStyle : {},
         }}
       >
-        <ListItemText secondary={module.name} />
+        <ListItemText sx={{ marginLeft: "18px" }} secondary={module.name} />
       </ListItemButton>
     </ListItem>
   );

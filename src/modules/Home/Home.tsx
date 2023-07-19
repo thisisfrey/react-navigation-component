@@ -3,7 +3,7 @@ import { Box, Typography, Button } from "@mui/material";
 import { content } from "../../shared/content/Content";
 import { favorites } from "../../shared/content/Favorites";
 import { useNavigate } from "react-router-dom";
-import BackgroundImg from "../../assets/landing.jpg";
+//import BackgroundImg from "../../assets/landing.jpg";
 
 function Home() {
   const navigate = useNavigate();

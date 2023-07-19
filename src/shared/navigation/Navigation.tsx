@@ -3,9 +3,7 @@ import MuiDrawer from "@mui/material/Drawer";
 import {
   Box,
   List,
-  IconButton,
   CssBaseline,
-  Tooltip,
   ListItemIcon,
   ListItemText,
   ListItemButton,
@@ -18,7 +16,7 @@ import { ReactNode, useState } from "react";
 import { ModuleItem } from "./components/moduleItem";
 import { favorites as favoriteContent } from "../content/Favorites";
 import { NavItem } from "./components/navItem";
-//import app from "../../config/constants";
+//import constants from "../../config/constants";
 
 const drawerWidth = 200;
 
@@ -131,34 +129,34 @@ const Navigation = ({ children }: { children: ReactNode }) => {
           }}
         >
           {/* <Tooltip title={!isExpanded ? "Expand" : ""} placement="right"> */}
-            <ListItemButton
+          <ListItemButton
+            sx={{
+              minHeight: 48,
+              justifyContent: isExpanded ? "initial" : "center",
+              px: 2.5,
+            }}
+            onClick={() => setOpen(!isExpanded)}
+          >
+            <ListItemIcon
               sx={{
-                minHeight: 48,
-                justifyContent: isExpanded ? "initial" : "center",
-                px: 2.5,
+                minWidth: 0,
+                mr: isExpanded ? 3 : "auto",
+                justifyContent: "center",
               }}
-              onClick={() => setOpen(!isExpanded)}
             >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: isExpanded ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                {isExpanded ? (
-                  <KeyboardDoubleArrowLeftIcon />
-                ) : (
-                  <KeyboardDoubleArrowRightIcon />
-                )}
-              </ListItemIcon>
-              <ListItemText
-                primary="Collapse"
-                sx={{
-                  opacity: isExpanded ? 1 : 0,
-                }}
-              />
-            </ListItemButton>
+              {isExpanded ? (
+                <KeyboardDoubleArrowLeftIcon />
+              ) : (
+                <KeyboardDoubleArrowRightIcon />
+              )}
+            </ListItemIcon>
+            <ListItemText
+              primary="Collapse"
+              sx={{
+                opacity: isExpanded ? 1 : 0,
+              }}
+            />
+          </ListItemButton>
           {/* </Tooltip> */}
         </Box>
 
@@ -172,7 +170,7 @@ const Navigation = ({ children }: { children: ReactNode }) => {
             }}
           >
             <Typography variant="caption" color="rgba(0, 0, 0, 0.6)">
-              Version {app.VERSION} <br />© Copyright {new Date().getFullYear()}
+              Version {constants.VERSION} <br />© Copyright {new Date().getFullYear()}
             </Typography>
           </Box>
         )} */}
