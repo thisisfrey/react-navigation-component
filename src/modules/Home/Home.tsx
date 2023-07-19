@@ -38,10 +38,10 @@ function Home() {
           display: "flex",
           alignItems: "left",
           flexDirection: "column",
-          color: "white",
+          color: "black",
         }}
       >
-        <Typography variant="h2">Welcome!!!!!</Typography>
+        <Typography variant="h2">Welcome</Typography>
         <Typography variant="h5" sx={{ mt: 1 }}>
           Where do you want to start?
         </Typography>

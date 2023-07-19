@@ -35,7 +35,7 @@ export const NavItem = ({ el, expanded }: INavItem) => {
 
   return (
     <Box sx={{ marginTop: "8px" }}>
-      <Tooltip title={expanded ? "" : el.name} placement="right">
+      <Tooltip title={!expanded && el.name} placement="right">
         <ListItem
           disablePadding
           sx={{ display: "block" }}
