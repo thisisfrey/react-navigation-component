@@ -132,7 +132,7 @@ const Navigation = ({ children }: { children: ReactNode }) => {
           <ListItemButton
             sx={{
               minHeight: 48,
-              justifyContent: isExpanded ? "initial" : "center",
+              justifyContent: "center",
               px: 2.5,
             }}
             onClick={() => setOpen(!isExpanded)}
@@ -150,12 +150,6 @@ const Navigation = ({ children }: { children: ReactNode }) => {
                 <KeyboardDoubleArrowRightIcon />
               )}
             </ListItemIcon>
-            <ListItemText
-              primary="Collapse"
-              sx={{
-                opacity: isExpanded ? 1 : 0,
-              }}
-            />
           </ListItemButton>
           {/* </Tooltip> */}
         </Box>

@@ -35,51 +35,50 @@ const AppBar = styled(MuiAppBar, {
 const TopBar = ({ expanded = false }: ITopBar): JSX.Element => {
   const navigate = useNavigate();
   return (
-    <>
-      <AppBar
-        sx={{
-          backgroundColor: "#212121",
-          m: 0,
-          p: 0,
-          display: "flex",
-          justifyContent: "center",
-        }}
-        position="fixed"
-        open={expanded}
-        elevation={0}
-      >
-        <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              cursor: "pointer",
-            }}
-            onClick={() => navigate("/")}
-          >
-            <img src={reactLogo} alt="reactLogo" />
-            <Typography sx={{ m: 2, fontSize: "32px", color: "primary.main" }}>
-              React
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <IconButton style={{ color: "white" }}>
-              <HelpOutlineIcon />
-            </IconButton>
-            <IconButton style={{ color: "white" }}>
-              <NotificationsNoneIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </>
+    <AppBar
+      sx={{
+        backgroundColor: "#212121",
+        m: 0,
+        p: 0,
+        display: "flex",
+        justifyContent: "center",
+      }}
+      position="fixed"
+      open={expanded}
+      elevation={0}
+    >
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={() => navigate("/")}
+        >
+          <img src={reactLogo} alt="reactLogo" />
+          <Typography sx={{ m: 2, fontSize: "32px", color: "primary.main" }}>
+            React
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <IconButton style={{ color: "white" }}>
+            <HelpOutlineIcon />
+          </IconButton>
+          <IconButton style={{ color: "white" }}>
+            <NotificationsNoneIcon />
+          </IconButton>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 export default TopBar;
+

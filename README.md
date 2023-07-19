@@ -22,9 +22,13 @@ Feel free to interact with the demo by navigating through its various pages, sub
 
 The Navigation Component is open-source and released under the MIT License. Feel free to use, modify, and distribute the component in your own projects.
 
-## Acknowledgments
+## Special Thanks
 
-We would like to thank all the contributors who have helped make this Navigation Component possible.
+I would like to thank all the contributors who have helped make this Navigation Component possible.
+
+Special thanks [Gabriel Jacobi](https://github.com/gabrieljacobi) for the incredible design contributions to this project. His creativity and attention to detail have greatly enhanced the overall user experience.
+
+Further thanks go to [Vincent Menzel](https://github.com/VincentMenzel) for his dedication to finding and fixing bugs, along with his efforts to improve the code quality and maintain cleanliness in every aspect.
 
 ## Contact
 
